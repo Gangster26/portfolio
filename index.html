@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arya Mehta - Data Engineer Portfolio</title>
+    <style>
+        :root {
+            --bg-color: #111111;
+            --text-color: #f5f5f5;
+            --accent-color: #60a5fa;
+            --secondary-color: #374151;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        a {
+            color: var(--accent-color);
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+        
+        a:hover {
+            opacity: 0.8;
+        }
+        
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        header {
+            padding: 2rem 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 2rem;
+        }
+        
+        nav ul li a {
+            color: var(--text-color);
+            font-weight: 500;
+        }
+        
+        .hero {
+            padding: 6rem 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            min-height: 80vh;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin-bottom: 2rem;
+            color: #9ca3af;
+        }
+        
+        .highlight {
+            color: var(--accent-color);
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            opacity: 0.9;
+        }
+        
+        section {
+            padding: 5rem 0;
+        }
+        
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            width: 50px;
+            height: 3px;
+            background-color: var(--accent-color);
+        }
+        
+        .work-experience {
+            margin-bottom: 3rem;
+        }
+        
+        .work-title {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+        }
+        
+        .work-title h3 {
+            font-size: 1.4rem;
+        }
+        
+        .work-title span {
+            color: var(--accent-color);
+        }
+        
+        .work-company {
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #9ca3af;
+        }
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .project-card {
+            background-color: var(--secondary-color);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .project-img {
+            width: 100%;
+            height: 180px;
+            background-color: #2a2a2a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .project-img svg {
+            width: 60px;
+            height: 60px;
+            color: var(--accent-color);
+        }
+        
+        .project-info {
+            padding: 1.5rem;
+        }
+        
+        .project-info h3 {
+            margin-bottom: 0.5rem;
+        }
+        
+        .project-info p {
+            color: #9ca3af;
+            margin-bottom: 1rem;
+        }
+        
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        
+        .tag {
+            background-color: rgba(96, 165, 250, 0.2);
+            color: var(--accent-color);
+            padding: 0.3rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+        }
+        
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .skill-category {
+            background-color: var(--secondary-color);
+            border-radius: 8px;
+            padding: 1.5rem;
+        }
+        
+        .skill-category h3 {
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+        }
+        
+        .skill-list {
+            list-style: none;
+        }
+        
+        .skill-list li {
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .skill-list li::before {
+            content: '•';
+            color: var(--accent-color);
+            margin-right: 0.5rem;
+        }
+        
+        .education {
+            margin-bottom: 3rem;
+        }
+        
+        .education h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .education p {
+            color: #9ca3af;
+        }
+        
+        .certification {
+            margin-bottom: 1.5rem;
+        }
+        
+        .certification h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.3rem;
+        }
+        
+        .certification p {
+            color: #9ca3af;
+            margin-bottom: 0.3rem;
+        }
+        
+        .contact {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        
+        .contact p {
+            max-width: 500px;
+            margin-bottom: 2rem;
+            color: #9ca3af;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .social-links a {
+            font-size: 1.2rem;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            border-top: 1px solid #333;
+            margin-top: 2rem;
+        }
+        
+        /* Animation classes */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 0.8s ease forwards;
+        }
+        
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .work-title {
+                flex-direction: column;
+            }
+            
+            .work-title span {
+                margin-top: 0.5rem;
+            }
+            
+            .skills-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">AM</div>
+            <nav>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#work">Experience</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#education">Education</a></li>
+                    <li><a href="#certifications">Certifications</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+        
+        <section class="hero fade-in" id="about">
+            <h1>Hello, I'm <span class="highlight">Arya Mehta</span></h1>
+            <p>Data Engineer with expertise in designing and implementing scalable data pipelines, ETL processes, and cloud data solutions. Passionate about building robust data infrastructure and transforming complex data into valuable business insights.</p>
+            <a href="#contact" class="btn">Get in touch</a>
+        </section>
+        
+        <section id="work" class="fade-in">
+            <h2 class="section-title">Experience</h2>
+            
+            <div class="work-experience">
+                <div class="work-title">
+                    <h3>Database Administrator</h3>
+                    <span>January 2024 - November 2024</span>
+                </div>
+                <div class="work-company">Meteo Control, Ahmedabad</div>
+                <ul>
+                    <li>Maintained high-availability database systems for critical business applications.</li>
+                    <li>Designed database schemas and implemented data models based on business requirements.</li>
+                    <li>Optimized database queries using views and advanced techniques, resulting in significantly faster retrieval times for solar plant monitoring data.</li>
+                    <li>Implemented AWS S3-based storage solution that reduced hosting costs by approximately 30%.</li>
+                    <li>Developed Python scripts for cleaning and processing data from solar plant loggers, improving data quality for analysis.</li>
+                    <li>Managed user access controls and security policies to ensure data protection.</li>
+                </ul>
+            </div>
+            
+            <div class="work-experience">
+                <div class="work-title">
+                    <h3>Data Analyst Intern</h3>
+                    <span>August 2022 - June 2023</span>
+                </div>
+                <div class="work-company">Dupat Infotronicx Pvt. Ltd., Ahmedabad</div>
+                <ul>
+                    <li>Processed and cleaned SCADA system data from a large chemical plant with 14,000+ employees.</li>
+                    <li>Developed ETL processes to transform complex industrial data into structured formats for analysis.</li>
+                    <li>Created interactive dashboards using Power BI to visualize key performance metrics for different plant sections.</li>
+                    <li>Presented data visualizations and insights directly to top management, supporting strategic decision-making.</li>
+                    <li>Collaborated with cross-functional teams to define data requirements and implement solutions.</li>
+                </ul>
+            </div>
+                </section>
+        
+        <section id="projects" class="fade-in">
+            <h2 class="section-title">Projects</h2>
+            
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-img">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" />
+                        </svg>
+                    </div>
+                    <div class="project-info">
+                        <h3>Scalable Data Pipeline for Energy Analytics</h3>
+                        <p>Designed and implemented an end-to-end data pipeline using Airflow and Spark for processing large volumes of energy monitoring data.</p>
+                        <div class="project-tags">
+                            <span class="tag">Apache Airflow</span>
+                            <span class="tag">Spark</span>
+                            <span class="tag">PostgreSQL</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-img">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                        </svg>
+                    </div>
+                    <div class="project-info">
+                        <h3>Netflix Show Popularity Prediction</h3>
+                        <p>Built an automated data pipeline to ingest, process, and analyze Netflix show data, with a machine learning model to predict show popularity.</p>
+                        <div class="project-tags">
+                            <span class="tag">ETL</span>
+                            <span class="tag">Python</span>
+                            <span class="tag">Machine Learning</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-img">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                        </svg>
+                    </div>
+                    <div class="project-info">
+                        <h3>Real-time Data Streaming Platform</h3>
+                        <p>Developed a real-time data processing system using Kafka and Spark Streaming to handle continuous data flows and enable immediate analytics.</p>
+                        <div class="project-tags">
+                            <span class="tag">Kafka</span>
+                            <span class="tag">Spark Streaming</span>
+                            <span class="tag">Redis</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-img">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                        </svg>
+                    </div>
+                    <div class="project-info">
+                        <h3>Cryptocurrency Market Analysis & Trading Signal Platform</h3>
+                        <p>Developing a comprehensive analytics platform leveraging historical and real-time market data to generate actionable cryptocurrency trading insights using advanced data pipelines.</p>
+                        <div class="project-tags">
+                            <span class="tag">Airflow</span>
+                            <span class="tag">dbt</span>
+                            <span class="tag">Machine Learning</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="skills" class="fade-in">
+            <h2 class="section-title">Skills</h2>
+            
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3>Data Engineering</h3>
+                    <ul class="skill-list">
+                        <li>ETL/ELT Pipeline Design</li>
+                        <li>Data Modeling & Architecture</li>
+                        <li>Data Warehousing (Snowflake)</li>
+                        <li>Data Lake Architecture</li>
+                        <li>Stream Processing</li>
+                        <li>dbt</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Big Data Technologies</h3>
+                    <ul class="skill-list">
+                        <li>Apache Spark</li>
+                        <li>Apache Airflow</li>
+                        <li>Apache Kafka</li>
+                        <li>Hadoop Ecosystem</li>
+                        <li>Databricks</li>
+                        <li>Delta Lake</li>
+                        <li>Spark Streaming</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Cloud & DevOps</h3>
+                    <ul class="skill-list">
+                        <li>AWS (S3, Redshift, EMR)</li>
+                        <li>Docker & Containerization</li>
+                        <li>CI/CD Pipelines</li>
+                        <li>Infrastructure as Code</li>
+                        <li>Kubernetes (basic)</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Databases</h3>
+                    <ul class="skill-list">
+                        <li>MySQL</li>
+                        <li>PostgreSQL</li>
+                        <li>MS SQL Server</li>
+                        <li>MongoDB</li>
+                        <li>Redis</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Programming</h3>
+                    <ul class="skill-list">
+                        <li>Python</li>
+                        <li>SQL & Advanced Queries</li>
+                        <li>PySpark</li>
+                        <li>JavaScript</li>
+                        <li>Django</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Data Analytics & ML</h3>
+                    <ul class="skill-list">
+                        <li>Data Visualization (PowerBI)</li>
+                        <li>Machine Learning Pipelines</li>
+                        <li>Pandas, NumPy, Scikit-learn</li>
+                        <li>Statistical Analysis</li>
+                        <li>LLM & Gen AI (basic)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <section id="education" class="fade-in">
+            <h2 class="section-title">Education</h2>
+            
+            <div class="education">
+                <h3 style="font-size: 1.8rem;">SAN JOSE STATE UNIVERSITY</h3>
+                <p style="color: #9ca3af; margin-top: 0;">San Jose, California</p>
+                <h4 style="font-size: 1.4rem; margin: 0.5rem 0; color: var(--accent-color);">Master of Science in Applied Data Science</h4>
+                <p style="color: #9ca3af;">(January 2025 - December 2026)</p>
+                <p>Core Subjects: Big Data, Data Warehouse, LLM, Gen AI, Machine Learning, Data Visualization</p>
+            </div>
+            
+            <div class="education">
+                <h3 style="font-size: 1.5rem;">SILVER OAK UNIVERSITY</h3>
+                <p style="color: #9ca3af; margin-top: 0;">Ahmedabad, India</p>
+                <h4 style="font-size: 1.2rem; margin: 0.5rem 0; color: var(--accent-color);">Bachelor of Technology in Computer Engineering</h4>
+                <p style="color: #9ca3af;">(August 2020 - May 2024)</p>
+                <p>CGPA: 9.1/10</p>
+                <p>Core Subjects: DSA, OOPs, DBMS, Computer Networks, Machine Learning</p>
+            </div>
+        
+        </section>
+        
+        <section id="certifications" class="fade-in">
+            <h2 class="section-title">Certifications</h2>
+            
+            <div class="certification">
+                <h3>Google Advance Data Analytics</h3>
+                <p>Coursera • 2023</p>
+                <a href="https://www.coursera.org/account/accomplishments/specialization/CV4XP3B555DD" target="_blank">View Certificate</a>
+            </div>
+            
+            <div class="certification">
+                <h3>Python (Basic)</h3>
+                <p>Hackerrank • 2021</p>
+                <a href="https://www.hackerrank.com/certificates/c93dfc448901" target="_blank">View Certificate</a>
+            </div>
+            
+            <div class="certification">
+                <h3>Python (Intermediate)</h3>
+                <p>Hackerrank • 2022</p>
+                <a href="https://www.hackerrank.com/certificates/c93dfc448901" target="_blank">View Certificate</a>
+            </div>
+            
+            <div class="certification">
+                <h3>Data Engineering with Apache Spark</h3>
+                <p>DataCamp • 2024</p>
+                <a href="#" target="_blank">View Certificate</a>
+            </div>
+        </section>
+        
+        <section id="contact" class="contact fade-in">
+            <h2 class="section-title">Contact</h2>
+            <p>I'm always interested in new opportunities and collaborations in data engineering and analytics. Feel free to reach out if you'd like to connect!</p>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                        <polyline points="22,6 12,13 2,6"></polyline>
+                    </svg>
+                    <a href="mailto:aryamehta456@gmail.com">aryamehta456@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                        <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                    <span>San Francisco Bay Area, California, USA</span>
+                </div>
+            </div>
+            
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/arya-mehta-148a35200" target="_blank">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                    </svg>
+                </a>
+                <a href="https://github.com/" target="_blank">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                </a>
+                <a href="https://medium.com/@opgangster44" target="_blank">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M0 0v24h24v-24h-24zm19.938 5.686l-1.32 1.261c-.113.088-.133.224-.063.33v9.269c-.058.106-.038.242.075.33l1.287 1.261v.277h-6.363v-.277l1.336-1.296c.13-.13.133-.168.133-.356v-7.486l-3.704 9.415h-.498l-4.307-9.415v6.311c-.033.259.037.515.226.702l1.656 2.006v.277h-4.696v-.277l1.656-2.006c.181-.187.247-.445.206-.702v-7.304c.024-.187-.037-.365-.175-.495l-1.468-1.771v-.277h4.564l3.539 7.774 3.107-7.774h4.341v.277z"/>
+                    </svg>
+                </a>
+            </div>
+            
+            <a href="mailto:aryamehta456@gmail.com" class="btn" style="margin-top: 2rem;">Say Hello</a>
+        </section>
+        
+        <footer>
+            <p>&copy; 2025 Arya Mehta. All rights reserved.</p>
+        </footer>
+    </div>
+    
+    <script>
+        // Simple animation on scroll
+        document.addEventListener('DOMContentLoaded', () => {
+            const fadeElems = document.querySelectorAll('.fade-in');
+            
+            const fadeIn = () => {
+                fadeElems.forEach(elem => {
+                    const rect = elem.getBoundingClientRect();
+                    const isInView = (rect.top <= window.innerHeight * 0.8);
+                    
+                    if (isInView) {
+                        elem.style.opacity = 1;
+                        elem.style.transform = 'translateY(0)';
+                    }
+                });
+            };
+            
+            // Initial check
+            fadeIn();
+            
+            // Check on scroll
+            window.addEventListener('scroll', fadeIn);
+        });
+    </script>
+</body>
+</html>
